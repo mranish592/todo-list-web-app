@@ -8,7 +8,6 @@ const statusCode = require("http-status")
 
 // User Routes
 router.post("/signup", async (req, res) => {
-    // Implement user signup logic
     const username = req.body.username;
     const password = req.body.password;
 
@@ -37,8 +36,7 @@ router.post("/signup", async (req, res) => {
         });
 });
 
-router.post("/signin", async (req, res) => {
-    // Implement admin signup logic
+router.post("/login", async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
@@ -67,7 +65,7 @@ router.post("/signin", async (req, res) => {
 
 router.get("/info", userMiddleware, async (req, res) => {
     const username = res.locals.username;
-    if(username == undefined){
+    if(username === undefined){
         return res.status(statusCode.UNAUTHORIZED).json({
             message: "Could not get username from token",
         });

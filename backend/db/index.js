@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
-const dotenv = require('dotenv')
-dotenv.config();
+require('dotenv').config();
+// dotenv.config();
+
 
 // Connect to MongoDB
 mongoose.connect(
@@ -18,7 +19,7 @@ const TodoSchema = new mongoose.Schema({
     // Schema definition here
     title: String,
     description: String,
-    competed: Boolean,
+    completed: Boolean,
     createdAt: Date, 
 });
 

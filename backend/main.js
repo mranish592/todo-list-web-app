@@ -3,6 +3,7 @@ const statusCode = require("http-status");
 const cors = require('cors');
 require('dotenv').config();
 const userRouter = require("./routes/user");
+const todosRouter = require("./routes/todos");
 
 const env = process.env;
 const app = express();
@@ -17,6 +18,7 @@ app.get("/", (req, res) => {
     })
 })
 app.use("/user", userRouter)
+app.use("/todos", todosRouter)
 
 app.listen(env.HTTP_PORT, function () {
     console.log(`Todo web app backend listening on port ${env.HTTP_PORT}`);
