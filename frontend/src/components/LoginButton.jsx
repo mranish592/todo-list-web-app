@@ -1,5 +1,7 @@
 export function LoginButton(){
     return <>
-        <button>Login</button>
+        <a href="/login">
+            <button to="/login">Login</button>
+        </a>
     </>
 }
