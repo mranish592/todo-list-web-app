@@ -1,8 +1,6 @@
 export function Todo({todo, setTodos, todos}){
     function handleCheckboxChange(event){
         const isCompleted = event.target.checked;
-        console.log("iscompleted", isCompleted);
-        console.log("todos before", todos);
         const updatedTodos = todos.map( it => {
             if (it.id === todo.id) {
               return { ...it, completed: isCompleted }; // Toggle the completed status
@@ -10,7 +8,6 @@ export function Todo({todo, setTodos, todos}){
             return it;
           });
         setTodos(updatedTodos)
-        console.log("updatedTodos", updatedTodos);
     }
 
     return <div id={todo.id}>
