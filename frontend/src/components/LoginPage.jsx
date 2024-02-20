@@ -32,8 +32,12 @@ function LoginPage() {
 
         const data = await response.json();
         console.log(data);
-        const token = data.token
+        const token = data.token;
+        const username = data.username;
+        const atIndex = email.indexOf('@');
+        const trimmedUsername = atIndex !== -1 ? username.substring(0, atIndex) : "";
         Cookies.set('accessToken', token, { expires: 7 });
+        Cookies.set('username', trimmedUsername, { expires: 7 });
         navigate('/todos');
         
     } catch (error) {

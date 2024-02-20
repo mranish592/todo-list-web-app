@@ -7,6 +7,7 @@ import { TodoPage } from './components/TodoPage'
 import LoginPage  from './components/LoginPage'
 import SignupPage from './components/SignupPage'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { AddTodo } from './components/AddTodo'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route key="todos" path="/login" element={<LoginPage></LoginPage>} />
         <Route key="todos" path="/signup" element={<SignupPage></SignupPage>} />
         <Route key="todos" path="/todos" element={<TodoPage></TodoPage>} />
+        <Route key="todos" path="/addTodo" element={<AddTodo></AddTodo>} />
       </Routes>
     </Router>
 
