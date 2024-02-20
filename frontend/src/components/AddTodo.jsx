@@ -1,14 +1,49 @@
+import Cookies from 'js-cookie';
 import React, { useState } from 'react';
 
-export function AddTodo({todos, setTodos}) {
+export function AddTodo({todos, setTodos, setShowAddTodo}) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     // Check if title is empty
     if (!title.trim()) {
       return;
+    }
+    try {
+        const response = await fetch("http://localhost:3000/todos/", {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${Cookies.get('accessToken')}`
+            },
+            body: JSON.stringify({
+                title: title,
+                description: description
+            })
+        });
+      
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+        console.log(data);
+        const id = data.id;
+        const newTodo = {
+            id: id,
+            title: title,
+            description: description,
+            completed: false
+        }
+        setTodos([...todos, newTodo]);
+        setShowAddTodo(false);
+        alert("Todo Added")
+        
+    } catch (error) {
+        console.error('Error:', error);
+        alert("Could not add todo. Issue with backend")
     }
     // Create todo object
     const newTodo = {
