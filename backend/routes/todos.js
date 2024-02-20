@@ -61,6 +61,7 @@ router.get("/", userMiddleware, async(req, res) => {
         const todosFromDB = await Todo.find({ _id: { $in: todoIds } });
         const todos = todosFromDB.map((todo) => {
             return {
+                id: todo._id,
                 title: todo.title,
                 description: todo.description,
                 completed: todo.completed
