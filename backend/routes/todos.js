@@ -92,7 +92,7 @@ router.put("/", userMiddleware, async(req, res) => {
     const newTodo = {
         title: todoPayload.title,
         description: todoPayload.description,
-        completed: false,
+        completed: todoPayload.completed,
     }
 
     const username = res.locals.username;
