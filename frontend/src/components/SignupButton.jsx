@@ -1,8 +1,8 @@
-export function SignupButton(){
-    return <>
-        <a href="/signup">
-            <button>Signup</button>
-        </a>
+import { useNavigate } from "react-router-dom"
 
+export function SignupButton(){
+    const navigate = useNavigate();
+    return <>
+        <button onClick={() => {navigate("/signup")}}>Signup</button>
     </>
 }
