@@ -4,8 +4,13 @@ import { Trash2Icon } from 'lucide-react';
 import { Button } from './ui/button';
 import { Textarea } from './ui/textarea';
 import { Input } from './ui/input';
+// import dotenv from 'dotenv';
+
+// dotenv.config();
+const SERVER_URL = process.env.SERVER_URL; 
 
 export function AddTodo({todos, setTodos, setShowAddTodo}) {
+
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
@@ -16,7 +21,7 @@ export function AddTodo({todos, setTodos, setShowAddTodo}) {
       return;
     }
     try {
-        const response = await fetch("http://localhost:3000/todos/", {
+        const response = await fetch(`${SERVER_URL}/todos/`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",

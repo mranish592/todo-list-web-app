@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
+const SERVER_URL = process.env.SERVER_URL; 
 
 
 function SignupPage() {
@@ -16,7 +17,7 @@ function SignupPage() {
     console.log('Email:', email);
     console.log('Password:', password);
     try {
-        const response = await fetch("http://localhost:3000/user/signup", {
+        const response = await fetch(`${SERVER_URL}/user/signup`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

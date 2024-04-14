@@ -2,6 +2,7 @@ import Cookies from 'js-cookie';
 import { Button } from './ui/button';
 import { Trash2Icon } from 'lucide-react';
 
+const SERVER_URL = process.env.SERVER_URL; 
   
 
 export function Todo({todo, setTodos, todos}){
@@ -10,7 +11,7 @@ export function Todo({todo, setTodos, todos}){
         const isCompleted = event.target.checked;
         console.log(isCompleted)
         try {
-            const response = await fetch("http://localhost:3000/todos/", {
+            const response = await fetch(`${SERVER_URL}/todos/`, {
                 method: 'PUT',
                 headers: {
                     "Content-Type": "application/json",
@@ -46,7 +47,7 @@ export function Todo({todo, setTodos, todos}){
     async function handleDeleteTodo(){
         try {
             const todoId = todo.id
-            const response = await fetch(`http://localhost:3000/todos/${todoId}`, {
+            const response = await fetch(`${SERVER_URL}/todos/${todoId}`, {
                 method: 'DELETE',
                 headers: {
                     "Authorization": `Bearer ${Cookies.get('accessToken')}`

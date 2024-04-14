@@ -9,7 +9,8 @@ import { AddTodo } from "./AddTodo";
 import { LogoutButton } from "./LogoutButton";
 import { Navbar } from "./Navbar";
 
-  
+const SERVER_URL = process.env.SERVER_URL; 
+
 
 export function TodoPage(){
     const [todos, setTodos] = useState([]);
@@ -20,7 +21,7 @@ export function TodoPage(){
     useEffect(() => {
         async function fetchTodos(){
             const token = Cookies.get('accessToken');
-            const response = await fetch("http://localhost:3000/todos/", {
+            const response = await fetch(`${SERVER_URL}/todos/`, {
                 method: "GET",
                 headers: {
                     "Authorization": `Bearer ${token}`

@@ -4,6 +4,7 @@ import Cookies from "js-cookie";
 import { Input } from './ui/input';
 import { Button } from './ui/button';
 
+const SERVER_URL = process.env.SERVER_URL; 
 
 
 function LoginPage() {
@@ -18,7 +19,7 @@ function LoginPage() {
     console.log('Email:', email);
     console.log('Password:', password);
     try {
-        const response = await fetch("http://localhost:3000/user/login", {
+        const response = await fetch(`${SERVER_URL}/user/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
