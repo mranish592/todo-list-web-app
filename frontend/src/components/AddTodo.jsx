@@ -1,5 +1,9 @@
 import Cookies from 'js-cookie';
 import React, { useState } from 'react';
+import { Trash2Icon } from 'lucide-react';
+import { Button } from './ui/button';
+import { Textarea } from './ui/textarea';
+import { Input } from './ui/input';
 
 export function AddTodo({todos, setTodos, setShowAddTodo}) {
   const [title, setTitle] = useState('');
@@ -60,7 +64,7 @@ export function AddTodo({todos, setTodos, setShowAddTodo}) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Add Todo</h2>
+      {/* <h2>Add Todo</h2>
       <div>
         <label htmlFor="title">Title:</label>
         <input
@@ -79,7 +83,19 @@ export function AddTodo({todos, setTodos, setShowAddTodo}) {
           onChange={(e) => setDescription(e.target.value)}
         />
       </div>
-      <button type="submit">Add Todo</button>
+      <button type="submit">Add Todo</button> */}
+      <div className="border-2 p-2 rounded-md">
+        <div className="max-w-96 my-2">
+          <Input type="text" id="title" value={title} placeholder="Title" onChange={(e) => setTitle(e.target.value)}/>
+        </div>
+        <div className="max-w-xl my-2">
+          <Textarea id="description" value={description} placeholder="Type your description here." onChange={(e) => setDescription(e.target.value)}/>
+        </div>
+        <div className="my-2">
+          <Button type="submit" className="mx-2">Add Todo</Button>
+          <Button variant="secondary" className="mx-2" onClick={() => {setShowAddTodo(false)}}>Cancel</Button>
+        </div>
+      </div>
     </form>
   );
 }

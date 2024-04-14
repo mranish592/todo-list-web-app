@@ -1,12 +1,13 @@
+import { Button } from "./ui/button"
 export function ShowCompletedButton({showCompleted, setShowCompleted}){
     if(showCompleted === true) {
-        return <button onClick={() => {
+        return <Button variant="outline" onClick={() => {
             setShowCompleted(false)
-        }}>Hide Completed</button>
+        }}>Hide Completed</Button>
     } else {
-        return <button onClick={() => {
+        return <Button variant="outline" onClick={() => {
             setShowCompleted(true)
-        }}>Show Completed</button>
+        }}>Show Completed</Button>
     }
     
 }

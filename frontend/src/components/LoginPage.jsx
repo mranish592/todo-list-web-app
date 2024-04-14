@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Cookies from "js-cookie";
+import { Input } from './ui/input';
+import { Button } from './ui/button';
+
 
 
 function LoginPage() {
@@ -49,32 +52,36 @@ function LoginPage() {
     setPassword('');
   };
 
+
+
+  
+
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Login</h2>
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </div>
-      <button type="submit">Login</button>
-    </form>
+    <>
+    <div className="m-4">
+      <form onSubmit={handleSubmit}>
+      <div className="border-2 p-2 rounded-md">
+          <h2 className="text-xl font-bold my-1.5">Login</h2>
+          <div className="max-w-96 my-2">
+            <Input type="text" id="email" value={email} placeholder="email" onChange={(e) => setEmail(e.target.value)}/>
+          </div>
+          <div className="max-w-xl my-2">
+          <Input type="password" id="password" value={password} placeholder="password" onChange={(e) => setPassword(e.target.value)}/>
+          </div>
+          <div className="my-2">
+            <Button type="submit" className="mx-2">Login</Button>
+          </div>
+        </div>
+        </form>
+    </div>
+    
+    </>
+    
+
+    
   );
+
+
 }
 
 export default LoginPage;

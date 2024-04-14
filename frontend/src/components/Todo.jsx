@@ -1,20 +1,12 @@
 import Cookies from 'js-cookie';
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
-
 import { Button } from './ui/button';
-import { Checkbox } from "@/components/ui/checkbox"
+import { Trash2Icon } from 'lucide-react';
 
   
 
 export function Todo({todo, setTodos, todos}){
     async function handleCheckboxChange(event){
+        console.log(event)
         const isCompleted = event.target.checked;
         console.log(isCompleted)
         try {
@@ -77,16 +69,23 @@ export function Todo({todo, setTodos, todos}){
       }
     }
 
-    return <Card id={todo.id}>
-        <CardHeader>
-            <CardTitle>{todo.title}</CardTitle>
-            <CardDescription>{todo.description}</CardDescription>
-        </CardHeader>
-        <CardContent>
-        {todo.completed ? <input type="checkbox" onChange={handleCheckboxChange} checked/> : <input type="checkbox" onChange={handleCheckboxChange}/>}
-            <Button onClick={handleDeleteTodo}>delete</Button>
-            <p>Card Content</p>
-        </CardContent>
-        </Card>
+    return <>
+        <div className="grid sm:grid-cols-12">
+            <div className="align-middle sm:col-span-1">
+                {todo.completed ? <input type="checkbox" onChange={handleCheckboxChange} checked/> : <input type="checkbox" onChange={handleCheckboxChange}/>}
+            </div>
+            <div className="align-middle sm:col-span-10">
+                <div className="font-semibold">{todo.title}</div>
+                <div className="text-sm">{todo.description}</div>
+            </div>
+            <div className="align-middle sm:col-span-1">
+            <Button variant="outline" size="icon" onClick={handleDeleteTodo}>
+                <Trash2Icon className="h-4 w-4" />
+            </Button>
+            </div>
+        </div>
+    </>
+
+
 
 }

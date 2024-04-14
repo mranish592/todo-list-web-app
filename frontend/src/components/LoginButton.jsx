@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "./ui/button"
 
-export function LoginButton(){
+export function LoginButton({className}){
     const navigate = useNavigate();
-
+    className = className ? className : ""
     return <>
-        <Button onClick={() => {navigate("/login")}}>Login</Button>
+        <Button className={className} onClick={() => {navigate("/login")}}>Login</Button>
     </>
 }

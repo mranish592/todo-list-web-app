@@ -9,7 +9,7 @@ import SignupPage from './components/SignupPage'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AddTodo } from './components/AddTodo'
 
-function App() {
+function App() {  
 
   return (
     <>
@@ -22,7 +22,6 @@ function App() {
         <Route key="todos" path="/addTodo" element={<AddTodo></AddTodo>} />
       </Routes>
     </Router>
-
     </>
   )
 }
