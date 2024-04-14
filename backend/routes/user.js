@@ -6,7 +6,6 @@ const jwt = require("jsonwebtoken");
 const jwtPassword = process.env.JWT_PASSWORD
 const statusCode = require("http-status")
 
-// User Routes
 router.post("/signup", async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
