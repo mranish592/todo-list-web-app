@@ -1,5 +1,7 @@
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import { Button } from "./ui/button"
+
 
 export function LogoutButton(){
     const navigate = useNavigate(); 
@@ -10,6 +12,6 @@ export function LogoutButton(){
         navigate("/");
     }
     return <>
-        <button onClick={logoutHandler}>Logout</button>
+        <Button onClick={logoutHandler}>Logout</Button>
     </>
 }

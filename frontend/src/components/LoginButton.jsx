@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom";
+import { Button } from "./ui/button"
 
 export function LoginButton(){
     const navigate = useNavigate();
 
     return <>
-        <button onClick={() => {navigate("/login")}}>Login</button>
+        <Button onClick={() => {navigate("/login")}}>Login</Button>
     </>
 }

@@ -1,6 +1,7 @@
+import { Button } from "./ui/button"
 export function AddTodoButton({showAddTodo, setShowAddTodo}){
     return <>
-        {showAddTodo ?  <button onClick={() => {setShowAddTodo(false)}}>Cancel</button> 
-        : <button onClick={()=>{setShowAddTodo(true)}}>+ Add Todo</button> }
+        {showAddTodo ?  <Button onClick={() => {setShowAddTodo(false)}}>Cancel</Button> 
+        : <Button onClick={()=>{setShowAddTodo(true)}}>+ Add Todo</Button> }
     </>
 }

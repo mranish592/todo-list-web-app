@@ -1,9 +1,20 @@
 import { Todo } from "./Todo";
+import { Table, 
+    TableBody,
+    TableCaption,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow, } from "@/components/ui/table";
 
 export function Todos({pendingTodos, todos, setTodos}){
 
     const todoElements = pendingTodos.map((todo) => (
-        <Todo key={todo.id} todo={todo} setTodos={setTodos} todos={todos}></Todo>
+        <TableRow>
+            <TableCell>
+                <Todo key={todo.id} todo={todo} setTodos={setTodos} todos={todos}></Todo>
+            </TableCell>                    
+        </TableRow>
     
     ));
 

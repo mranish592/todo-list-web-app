@@ -1,4 +1,17 @@
 import Cookies from 'js-cookie';
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card"
+
+import { Button } from './ui/button';
+import { Checkbox } from "@/components/ui/checkbox"
+
+  
 
 export function Todo({todo, setTodos, todos}){
     async function handleCheckboxChange(event){
@@ -64,10 +77,16 @@ export function Todo({todo, setTodos, todos}){
       }
     }
 
-    return <div id={todo.id}>
-        <h4>{todo.title}</h4>
-        <div>{todo.description}</div>
+    return <Card id={todo.id}>
+        <CardHeader>
+            <CardTitle>{todo.title}</CardTitle>
+            <CardDescription>{todo.description}</CardDescription>
+        </CardHeader>
+        <CardContent>
         {todo.completed ? <input type="checkbox" onChange={handleCheckboxChange} checked/> : <input type="checkbox" onChange={handleCheckboxChange}/>}
-        <button onClick={handleDeleteTodo}>delete todo</button>
-    </div>
+            <Button onClick={handleDeleteTodo}>delete</Button>
+            <p>Card Content</p>
+        </CardContent>
+        </Card>
+
 }
